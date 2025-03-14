@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas JavaScript</title>
+</head>
+<body>
+    <h2>Menghitung luas Bangun Datar</h2>
+    <script>
+        // Variabel panjang, lebar, sisi, alas, dan tinggi
+        let panjang = 20;
+        let lebar = 10;
+        let sisi = 9;
+        let alas = 12;
+        let tinggi = 10;
+
+        //Luas persegi panjang
+        document.write("<hr>");
+        document.write(
+            "<h3>Menghitung Luas Persegi Panjang</h3>" +
+            "<br>Diketahui: <br>Panjang = " + panjang + " cm " +
+            "<br>Lebar = " + lebar + " cm " +
+            "<br>Dijawab: <br>Rumus Luas Persegi panjang = Panjang * Lebar" +
+            //fungsi menghitung luas persegi panjang
+            "<br> Luas = " + panjang + " cm " + " * " + lebar + " cm = " + panjang * lebar +" cm²"
+        );
+
+        //Luas bujur sangkar
+        document.write("<hr>");
+        document.write(
+            "<h3>Menghitung Luas Bujur Sangkar(Persegi)</h3>" +
+            "<br>Diketahui: <br>Sisi = " + sisi + " cm " +
+            "<br>Dijawab: <br>Rumus Luas Bujur Sangkar = sisi * sisi" +
+            //fungsi menghitung luas bujur sangkar
+            "<br> Luas = " + sisi + " cm " + " * " + sisi + " cm = " + sisi * sisi +" cm²"
+        );
+
+        //Luas segitiga
+        document.write("<hr>");
+        document.write(
+            "<h3>Menghitung Luas Segitiga</h3>" +
+            "<br>Diketahui: <br>Alas = " + alas + " cm " +
+            "<br>Tinggi = " + tinggi + " cm " +
+            "<br>Dijawab: <br>Rumus Luas Segitiga = ( Alas * Tinggi ) / 2" +
+            //fungsi menghitung luas segetiga
+            "<br> Luas = ( " + alas + " cm " + " * " + tinggi + " cm ) / 2 = " + ((alas * tinggi) / 2) + " cm²"
+        );
+
+        document.write("<hr>");
+    </script>
+</body>
+</html>
