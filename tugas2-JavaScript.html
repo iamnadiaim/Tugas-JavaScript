@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pegawai</title>
+</head>
+<body>
+    <font face="Times New Roman">
+        <table border="1" cellpadding="12" cellspacing="3" style="font-size: 15px;" align="center">
+            <caption style="margin-bottom: 20px; margin-top: 20px; font-size: 30px;"><b>DATA PEGAWAI</b></caption>
+            <thead>
+                <tr bgcolor="#808080" style="color: white;">
+                    <th>NAMA PEGAWAI</th>
+                    <th>UMUR</th>
+                    <th>JABATAN</th>
+                    <th>STATUS</th>
+                    <th>GAJI POKOK</th>
+                    <th>TUNJANGAN JABATAN</th>
+                    <th>BPJS</th>
+                    <th>TUNJANGAN KELUARGA</th>
+                </tr>
+            </thead>
+            <tbody align="center" style="color: black;">
+                <tr id="pegawai-data">
+                    <!-- Data akan dimasukkan oleh JavaScript -->
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr bgcolor="#dcdcdc">
+                    <th colspan="7" style="text-align: center;">TOTAL GAJI:</th>
+                    <th id="total-gaji" style="color: red;"></th>
+                    <!-- Data akan dimasukkan oleh JavaScript -->
+                </tr>
+            </tfoot>
+        </table>
+    </font>
+
+    <script>
+        // Diketahui Data Pegawai
+        let D_pegawai = {
+            nama: "Dodi Prayodi",
+            umur: 25,
+            jabatan: "Manajer",
+            status: "Menikah"
+        };
+
+        // Gaji Pokok berdasarkan jabatan
+        let gajiPokok;
+        switch (D_pegawai.jabatan) {
+            case "Manajer":
+                gajiPokok = 15000000;
+                break;
+            case "Asisten Manajer":
+                gajiPokok = 10000000;
+                break;
+            case "Staff":
+                gajiPokok = 5000000;
+                break;
+            default:
+                gajiPokok = 0;
+        }
+
+        // Perhitungan tunjangan
+        let tunjanganJabatan = gajiPokok * 0.15; // Tunjangan Jabatan: 15% dari gaji pokok
+        let bpjs = gajiPokok * 0.10; // BPJS: 10% dari gaji pokok
+        let tunjanganKeluarga = D_pegawai.status === "Menikah" ? gajiPokok * 0.20 : 0; //Status yg sudah menikah =>20% dari gapok
+        let totalGaji = gajiPokok + tunjanganJabatan + tunjanganKeluarga - bpjs; //Keseluruhan element gaji
+
+        // Menambahkan data ke dalam tbody
+        // Menggunakan document.getElementById("pegawai-data") untuk mengambil elemen dengan ID "pegawai-data"
+        document.getElementById("pegawai-data").innerHTML = ` 
+            <td>${D_pegawai.nama}</td>
+            <td>${D_pegawai.umur} Tahun</td>
+            <td>${D_pegawai.jabatan}</td>
+            <td>${D_pegawai.status}</td>
+            <td>Rp ${gajiPokok.toLocaleString()}</td> // toLocaleString, memformat angka agar lebih rapi
+            <td>Rp ${tunjanganJabatan.toLocaleString()}</td>
+            <td>Rp ${bpjs.toLocaleString()}</td>
+            <td>Rp ${tunjanganKeluarga.toLocaleString()}</td>
+        `;
+
+        // Menampilkan total gaji di footer 
+        // Menggunakan document.getElementById("total-gaji") untuk mengambil elemen dengan ID "total-gaji"
+        document.getElementById("total-gaji").innerHTML = `<b>Rp ${totalGaji.toLocaleString()}</b>`;
+    </script>
+</body>
+</html>
